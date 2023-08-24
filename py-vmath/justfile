@@ -1,0 +1,21 @@
+# default recipe to display help information
+default:
+    @just --list
+
+# prepare virtual environment
+mkvenv:
+	@echo Making virtual environment
+	mkdir -p .env
+	python -m venv .env/
+	@just activate
+	@echo Virtual environment creation successful!
+
+# activate virtual environment
+activate:
+	@echo Activating virtual virtual environment
+	source .env/bin/activate
+
+# build library
+dev:
+	@echo Building python bindings
+	maturin develop
